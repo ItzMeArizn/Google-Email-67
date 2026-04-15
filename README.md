@@ -28,26 +28,31 @@ To add a new game, simply edit the `src/games.json` file. Each game object shoul
 
 ## How to Publish to GitHub Pages
 
-1. **Install the gh-pages package**:
+1. **Set the Base Path**: I have already set `base: './'` in `vite.config.js`. This ensures that your assets load correctly even if your site is hosted at `username.github.io/repo-name/`.
+
+2. **Build the Project**:
+   Run the following command to generate the production files:
+   ```bash
+   npm run build
+   ```
+   This will create a `dist` folder.
+
+3. **Deploy the `dist` folder**:
+   GitHub Pages needs to serve the contents of the `dist` folder. You can use the `gh-pages` package:
    ```bash
    npm install gh-pages --save-dev
    ```
-
-2. **Update `package.json`**:
-   Add these scripts:
+   Add these scripts to your `package.json`:
    ```json
    "predeploy": "npm run build",
    "deploy": "gh-pages -d dist"
    ```
-   And add a `homepage` field:
-   ```json
-   "homepage": "https://your-username.github.io/your-repo-name"
-   ```
-
-3. **Deploy**:
+   Then run:
    ```bash
    npm run deploy
    ```
+
+**Note**: If you are manually uploading files to GitHub, you must upload the **contents** of the `dist` folder, not the `dist` folder itself or the root project files.
 
 ## Tech Stack
 
