@@ -2,9 +2,9 @@ import { useState, useMemo } from 'react';
 import { Search, Gamepad2, Filter, Github, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import gamesData from './games.json';
-import { GameCard } from './components/GameCard';
-import { GameModal } from './components/GameModal';
-import { cn } from './lib/utils';
+import { GameCard } from './components/GameCard.jsx';
+import { GameModal } from './components/GameModal.jsx';
+import { cn } from './lib/utils.js';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
